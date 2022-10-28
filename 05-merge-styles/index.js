@@ -12,7 +12,9 @@ readdir(dir).then((res) => {
     if (path.extname(file) != '.css') continue;
     fs.stat(path.join(dir,file), (err, stats) => {
       if (!stats.isDirectory()) {
-        fs.createReadStream(path.join(dir, file)).on('data', () => fileStream.write('\n/* ------'+ file +' ------ */\n')).pipe(fileStream);
+        fs.createReadStream(path.join(dir, file))
+          .on('data', () => fileStream.write('\n/* ------' + file + ' ------ */\n'))
+          .pipe(fileStream);
       }
     });
   }
