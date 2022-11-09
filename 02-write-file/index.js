@@ -20,7 +20,7 @@ process.on('SIGINT', () => {
 
 function exit() {
   fileStream.end();
-  stdin.end('\nThanks and have a nice day !!!\n');
+  console.log('\nThanks and have a nice day !!!\n');
   process.exit(0);
 }
 
